@@ -102,7 +102,7 @@ install -m 0755 init.d/${2} target/init-device
 if [ "$2" == "vero2" ] || [ "$2" == "vero364" ]
 then
     cp -ar lvm-avnftl.conf target/etc/lvm/lvm.conf
-    install -m 0755 lvm2/LVM2.${LVM_VERSION}/out/usr/sbin/lvchange target/usr/sbin/lvchange
+    install -m 0755 lvm2/LVM2.${LVM_VERSION}/out/usr/sbin/lvm target/usr/sbin/lvm
 fi
 cp -ar udhcpc.script target/usr/share/udhcpc/default.script
 cp -ar e2fsck.conf target/etc/e2fsck.conf
@@ -118,7 +118,7 @@ for line in $(ldd target/bin/e2fsck); do if (echo $line | grep -q /lib); then cp
 for line in $(ldd target/bin/busybox); do if (echo $line | grep -q /lib); then cp $line target/lib; fi; done
 if [ "$2" == "vero2" ] || [ "$2" == "vero364" ]
 then
-    for line in $(ldd target/usr/sbin/lvchange); do if (echo $line | grep -q /lib); then cp $line target/lib; fi; done
+    for line in $(ldd target/usr/sbin/lvm); do if (echo $line | grep -q /lib); then cp $line target/lib; fi; done
     # HACK HACK HACK. Fix when not 6.33AM
     cp lvm2/LVM2.${LVM_VERSION}/out/usr/lib/libdevmapper.so.* target/usr/lib
     # Double hack. Would normally overwrite if consistent, but catch libdevmapper being on system.

@@ -92,4 +92,4 @@ echo 4 > /sys/module/amvdec_h264/parameters/dec_control
 
 # Set up NAND
 # ToDo: only if bootfromsd
-/usr/sbin/lvchange -aly /dev/vero-nand/root --ignorelockingfailure >/dev/null 2>&1
+/usr/sbin/lvm vgchange --ignorelockingfailure -aay vero-nand >/dev/null 2>&1
