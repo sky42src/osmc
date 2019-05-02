@@ -36,7 +36,9 @@ done
 
 pull_source "http://buildroot.uclibc.org/downloads/buildroot-${BUILDROOT_VERSION}.tar.gz" "."
 verify_action
+mkdir downloads-buildroot 2>/dev/null
 pushd buildroot-${BUILDROOT_VERSION}
+ln -s ../downloads-buildroot dl
 install_patch "../patches" "all"
 install_patch "../patches" "$1"
 if [ "$1" == "rbp1" ] || [ "$1" == "rbp2" ]
