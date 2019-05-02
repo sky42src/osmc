@@ -261,7 +261,7 @@ void MainWindow::install()
             system("dd if=/dev/zero of=/dev/tee bs=256k conv=fsync"); /* Quirk */
             system("pvcreate /dev/data /dev/system /dev/cache /dev/instaboot");
             system("vgcreate vero-nand /dev/data /dev/system /dev/cache /dev/instaboot");
-            system("lvcreate -n root -l100%FREE vero-nand");
+            system("lvcreate -n root -L 4G vero-nand");
             utils->fmtpart(device->getRoot(), "ext4");
         }
         QString rootBase = device->getRoot();
