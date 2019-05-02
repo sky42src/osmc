@@ -31,7 +31,7 @@ RLS="stretch"
 URL="http://mirrordirector.raspbian.org/raspbian"
 
 # Remove existing build
-remove_existing_filesystem "{$wd}/{$DIR}"
+remove_existing_filesystem "${wd}/${DIR}"
 verify_action
 mkdir -p $DIR
 
