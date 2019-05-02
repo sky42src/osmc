@@ -23,7 +23,7 @@ parted
 cpio
 python"
 
-if [ "$1" == "vero2" ]
+if [ "$1" == "vero2" ] || [ "$1" == "vero3" ]
 then
    packages="abootimg u-boot-tools $packages"
 fi
